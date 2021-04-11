@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_133128) do
+ActiveRecord::Schema.define(version: 2021_04_11_032504) do
 
   create_table "delivery_addresses", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 2021_04_09_133128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_genres_on_name", unique: true
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.boolean "stooped_flg", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "image_id"
+    t.text "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000564dc50>"
+    t.integer "price", null: false
+    t.index ["genre_id"], name: "index_products_on_genre_id"
+    t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
