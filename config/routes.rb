@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :delivery_address, only: [:index, :create, :edit, :update, :destroy]
+      resources :delivery_addresses, only: [:index, :create, :edit, :update, :destroy]
 
       get 'cart_items' => 'cart_items#destroy_all'
       
