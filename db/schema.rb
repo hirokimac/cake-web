@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_051329) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image_id"
-    t.text "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x000000000564dc50>"
+    t.text "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00000000054f99d0>"
     t.integer "price", null: false
     t.index ["genre_id"], name: "index_products_on_genre_id"
     t.index ["name"], name: "index_products_on_name", unique: true
