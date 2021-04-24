@@ -19,7 +19,6 @@ class User < ApplicationRecord
          validates :address, presence: true
          validates :phone_number, presence: true
          validates :phone_number, format: { with: /\A\d{10,11}\z/ }
-         validates :delete_flg, inclusion: { in: [true, false]}
 
          enum delete_flg: {入会: false, 退会: true }
 
