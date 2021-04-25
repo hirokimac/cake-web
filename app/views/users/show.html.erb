@@ -1,0 +1,67 @@
+<div class="container">
+<div class="row">
+<h1>マイページ</h1>
+<div class="d-flex flex-row bd-highlight mb-3">
+<div class="p-2 bd-highlight">
+<h2>登録情報</h2>
+</div>
+<div class="p-2 bd-highlight">
+<%= button_to "編集する", {controller: 'users', action: 'edit'}, {method: :get} %>
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-8">
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th scope="row">氏名</th>
+<td><%= @user.last_name %> <%= @user.first_name %></td>
+</tr>
+<tr>
+<th scope="row">カナ</th>
+<td><%= @user.last_name_kana %> <%= @user.first_name_kana %></td>
+</tr>
+<tr>
+<th scope="row">郵便番号</th>
+<td><%= @user.postcode %></td>
+</tr>
+<tr>
+<th scope="row">住所</th>
+<td><%= @user.address %></td>
+</tr>
+<tr>
+<th scope="row">電話番号</th>
+<td><%= @user.phone_number %></td>
+</tr>
+<tr>
+<th scope="row">メールアドレス</th>
+<td><%= @user.email %></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="row">
+<div class="d-flex flex-row bd-highlight mb-3">
+<div class="p-2 bd-highlight">
+<h2>配送先</h2>
+</div>
+<div class="p-2 bd-highlight">
+<%= button_to "一覧を見る", {controller: 'delivery_addresses', action: 'index'}, {method: :get} %>
+</div>
+</div>
+
+<div class="row">
+<div class="d-flex flex-row bd-highlight mb-3">
+<div class="p-2 bd-highlight">
+<h2>注文履歴</h2>
+</div>
+<div class="p-2 bd-highlight">
+<%= button_to "一覧を見る", {controller: 'orders', action: 'index'}, {method: :get} %>
+</div>
+</div>
+
+</div>
+</div>
+

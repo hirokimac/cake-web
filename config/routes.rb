@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genres/new'
   devise_for :users
 
   resources :users, only: [:show, :edit, :update, :destroy] do
@@ -31,7 +32,9 @@ Rails.application.routes.draw do
     
   end
 
-  resources :products, only: [:show, :index] 
+  resources :products, only: [:new, :create, :show, :index, :destroy] 
+
+  resources :genres, only: [:new, :create, :show, :index, :destroy]
 
   get 'about' => 'homes#about'
   

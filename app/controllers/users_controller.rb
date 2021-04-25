@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
+    before_action :authenticate_user!
+    
     def show
+        @user = current_user
     end
 
     def edit
@@ -14,8 +17,9 @@ class UsersController < ApplicationController
 
     def withdrawal
     end
-    
+
     def withdrawal_updata
     end
 
 end
+

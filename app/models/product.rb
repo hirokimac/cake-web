@@ -7,6 +7,9 @@ class Product < ApplicationRecord
     attachment :image_id
 
     validates :description, length: { maximum: 200 }
+    validates :description, presence: true
+    validates :name, presence: true
+    validates :price, presence: true
 
     enum stopped_flg: {販売中: false, 売り切れ: true }
     
