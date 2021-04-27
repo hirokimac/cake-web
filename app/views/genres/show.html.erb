@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <h2>ジャンル詳細</h2>
+            <div>
+                <%= link_to @genre.name, genre_path(@genre) %>
+            </div>
+
+            <div>
+                <td class="btn-sm btn-danger">
+                    <%= link_to genre_path(@genre), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+                    削除
+                    <% end %>
+                </td>
+            </div>
+
+        </div>
+    </div>
+
+</div>

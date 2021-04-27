@@ -4,7 +4,7 @@ class Product < ApplicationRecord
     has_many :carts, dependent: :destroy
     has_many :users, through: :carts, dependent: :destroy
 
-    attachment :image_id
+    attachment :product_image
 
     validates :description, length: { maximum: 200 }
     validates :description, presence: true

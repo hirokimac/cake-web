@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <h2>商品詳細</h2>
+            <table class="table table-hover table-inverse">
+                <thead>
+                    <tr>
+                        <td>
+                            ジャンル：<%= @product.genre.name %>
+                        </td>
+                        <td>
+                            <%= link_to @product.name, product_path(@product.id) %>
+                        </td>
+                        <td>
+                            <%= @product.description %>
+                        </td>
+                        <td>
+                            <%= attachment_image_tag @product, :product_image, :fill, 200, 100, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+                        </td>
+                        <td>
+                            <%= @product.price %>円（税抜）
+                        </td>
+                </thead>
+            </table>
+
+            <div>
+                <td class="btn-sm btn-danger">
+                    <%= link_to product_path(@product), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
+                    削除
+                    <% end %>
+                </td>
+            </div>
+
+        </div>
+    </div>
+
+</div>

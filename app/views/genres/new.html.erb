@@ -1,2 +1,17 @@
-<h1>Genres#new</h1>
-<p>Find me in app/views/genres/new.html.erb</p>
+<div class="container">
+<div class="row">
+<div class="col">
+
+<h2>ジャンル登録</h2>
+<%= form_for(@genre) do |f| %>
+<div class="field row">
+    <label for="name">ジャンル名</label>
+    <%= f.text_field :name , class:"form-control" %>
+</div>
+<%= f.submit "Create Genre", class:"btn btn-primary" %>
+<% end %>
+
+</div>
+</div>
+
+</div>

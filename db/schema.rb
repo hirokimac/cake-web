@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_051329) do
+ActiveRecord::Schema.define(version: 2021_04_25_115058) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_051329) do
     t.boolean "stooped_flg", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "image_id"
+    t.string "product_image_id"
     t.text "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00000000054f99d0>"
     t.integer "price", null: false
     t.index ["genre_id"], name: "index_products_on_genre_id"
