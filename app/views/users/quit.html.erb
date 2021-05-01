@@ -1,0 +1,29 @@
+<div class="body">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto" style="width: 500px;">
+                <h3>本当に退会しますか？</h3>
+
+                <p>退会すると、会員登録情報や</p>
+                <p>これまでの購⼊履歴が閲覧できなくなります。</p>
+                <p>退会する場合は、「退会する」をクリックしてください。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <%= button_to "退会しない", {controller: 'users', action: 'show'}, {method: :get} %>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+            <%= button_to "退会する", {controller: 'users', action: 'withdrawal'}, {method: :delete} %>
+        </div>
+    </div>
+</div>
