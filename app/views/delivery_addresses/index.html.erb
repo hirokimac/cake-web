@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <h2>配送先登録 / ⼀覧</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <%= form_for(@new_delivery_address) do |f| %>
+                <div class="field">
+                    <label for="postcode">郵便番号(ハイフンなし)</label>
+                    <%= f.number_field :postcode , class:"form-control" %>
+                </div>
+                <div class="field">
+                    <label for="address">住所</label>
+                    <%= f.text_field :address , class: "form-control" %>
+                </div>
+                <div class="field">
+                    <label for="name">宛名</label>
+                    <%= f.text_area :name , class:"form-control" %>
+                </div>
+                <%= f.submit "新規登録" %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row">郵便番号</th>
+                            <th scope="row">住所</th>
+                            <th scope="row">宛名</th>
+                            <th scope="row"></th>
+                        </tr>
+                        <tr>
+                            <td><%= @user.postcode %> </td>
+                            <td><%= @user.address %> </td>
+                            <td><%= @user.last_name %> <%= @user.first_name %> </td>
+                            <td> <%= button_to "編集する", {controller: 'users', action: 'edit'}, {method: :get} %>
+                            </td>
+                        </tr>
+                        <% @delivery_addresses.each do |delivery_address| %>
+                        <tr>
+                            <td><%= delivery_address.postcode %> </td>
+                            <td><%= delivery_address.address %> </td>
+                            <td><%= delivery_address.name %> </td>
+                            <td> <%= link_to "編集する", edit_delivery_address_path(params[:id])%>
+                                <%= link_to "削除する", delivery_address_path(params[:id]), method: :delete %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>

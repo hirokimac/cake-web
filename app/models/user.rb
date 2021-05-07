@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          def active_for_authentication?
-          super && (delete_flg == "入会")
+          super && (delete_flg == false)
         end
 
-         has_many :delibery_addresses, dependent: :destroy
+         has_many :delivery_addresses, dependent: :destroy
          has_many :orders, dependent: :destroy
          has_many :carts, dependent: :destroy
          has_many :products, through: :carts, dependent: :destroy
@@ -23,8 +23,6 @@ class User < ApplicationRecord
          validates :address, presence: true
          validates :phone_number, presence: true
          validates :phone_number, format: { with: /\A\d{10,11}\z/ }
-
-         enum delete_flg: {入会: false, 退会: true }
 
          
 end

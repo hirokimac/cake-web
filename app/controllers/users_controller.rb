@@ -19,17 +19,11 @@ class UsersController < ApplicationController
         end
     end
 
-    def quit
-    end
-
     def withdrawal
         @user = User.find(params[:id])
         @user.update(delete_flg: true)
         reset_session
         redirect_to root_path
-    end
-
-    def withdrawal_updata
     end
 
     private
