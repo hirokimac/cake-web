@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <h2>配送先編集</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <%= form_for(@delivery_address) do |f| %>
+                <div class="field">
+                    <label for="postcode">郵便番号</label>
+                    <%= f.text_area :postcode , class:"form-control" %>
+                </div>
+                <div class="field">
+                    <label for="address">住所</label>
+                    <%= f.text_area :address , class:"form-control" %>
+                </div>
+                <div class="field">
+                    <label for="name">宛名</label>
+                    <%= f.text_area :name , class:"form-control" %>
+                </div>
+                <%= f.submit "編集内容を保存" %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <%= link_to "削除する", delivery_address_path(params[:id]), method: :delete %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
