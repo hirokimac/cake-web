@@ -12,5 +12,9 @@ class Product < ApplicationRecord
     validates :price, presence: true
 
     enum stopped_flg: {販売中: false, 売り切れ: true }
+
+    def add_tax_price
+        (self.price * 1.10).round
+    end
     
 end

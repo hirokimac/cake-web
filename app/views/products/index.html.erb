@@ -24,7 +24,7 @@
                         <%= attachment_image_tag product, :product_image, :fill, 200, 100, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
                         </td>
                         <td>
-                                <%= product.price %>円（税抜）
+                                ¥ <%= product.add_tax_price.to_s(:delimited) %>（税込）
                         </td>
                             <% end %>
                 <%= paginate @products %>
