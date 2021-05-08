@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="d-flex flex-row bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+                <h2>ショッピングカート</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th scope="row">商品名</th>
+                            <th scope="row">単価(税込)</th>
+                            <th scope="row">数量</th>
+                            <th scope="row">小計</th>
+                            <th scope="row">　　</th>
+                        </tr>
+                        <% @carts.each do |cart| %>
+                        <tr>
+                            <td><%= cart.product.name %> </td>
+                            <td><%= cart.product.add_tax_price.to_s(:delimited) %> </td>
+                            <td><%= cart.quantity %> </td>
+                            <td><%= cart.add_tax_sum_of_price %> </td>
+                            <td><%= link_to "削除する", cart_path(cart), method: :delete %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
