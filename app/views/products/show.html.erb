@@ -19,10 +19,17 @@
                             <%= attachment_image_tag @product, :product_image, :fill, 200, 100, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
                         </td>
                         <td>
-                            <%= @product.price %>円（税抜）
+                            ¥ <%= @product.add_tax_price.to_s(:delimited) %>（税込）
                         </td>
                 </thead>
             </table>
+
+            <div>
+            <%= form_for(@cart) do |f| %>
+            <%= f.submit "カートに入れる" %>
+            <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+            <% end %>
+            </div>
 
             <div>
                 <td class="btn-sm btn-danger">
@@ -31,7 +38,7 @@
                     <% end %>
                 </td>
             </div>
-
+            
         </div>
     </div>
 
