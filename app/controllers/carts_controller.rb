@@ -34,16 +34,15 @@ class CartsController < ApplicationController
     end
 
     def destroy
-        user = current_user
         cart = Cart.find(params[:id])
         cart.destroy
-        redirect_to cart_path(user.id)
+        redirect_to carts_path(current_user.id)
     end
 
     def destroy_all
         cart = current_user.carts
-        cart.destroy
-        redirect_to cart_path(current_user.id)
+        cart.destroy_all
+        redirect_to carts_path(current_user.id)
     end
 
     private

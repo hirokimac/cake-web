@@ -33,7 +33,7 @@
                             <% end %>
                         </td>
                         <td><%= cart.add_tax_sum_of_price %> </td>
-                        <td><%= link_to "削除する", cart_path(cart), method: :delete %>
+                        <td><%= link_to "削除する", cart_path(cart.id), method: :delete %>
                         </td>
                     </tr>
                     <% end %>
