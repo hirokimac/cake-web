@@ -48,8 +48,8 @@
                             <td><%= delivery_address.postcode %> </td>
                             <td><%= delivery_address.address %> </td>
                             <td><%= delivery_address.name %> </td>
-                            <td> <%= link_to "編集する", edit_delivery_address_path(params[:id])%>
-                                <%= link_to "削除する", delivery_address_path(params[:id]), method: :delete %>
+                            <td> <%= link_to "編集する", edit_delivery_address_path(delivery_address)%>
+                                <%= link_to "削除する", delivery_address_path(delivery_address), method: :delete %>
                             </td>
                         </tr>
                         <% end %>

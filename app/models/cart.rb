@@ -4,4 +4,12 @@ class Cart < ApplicationRecord
 
     validates :quantity, presence: true
 
+    def sum_of_price
+        product.price * quantity
+    end
+
+    def add_tax_sum_of_price
+        (self.sum_of_price * 1.10).round
+    end
+
 end
