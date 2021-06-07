@@ -25,14 +25,15 @@
                     </tr>
                     <% @carts.each do |cart| %>
                     <tr>
-                        <td><%= cart.product.name %> </td>
-                        <td><%= cart.product.add_tax_price.to_s(:delimited) %> </td>
-                        <td><%= form_for(cart, url: cart_path, method: :patch) do |f| %>
-                            <%= number_field_tag "quantity[#{cart.id}]", cart.quantity, in: 1..10 %>
+                        <td><%= attachment_image_tag cart.product, :product_image, :fill, 100, 50, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+                        <%= cart.product.name %> </td>
+                        <td><%= (cart.product.price * @TAX).round %> </td>
+                        <td><%= form_for(cart, url: cart_path(current_user.id, cart.id), method: :patch) do |f| %>
+                            <%= f.select :quantity, [1,2,3]  %>
                             <%= f.submit "変更" %>
                             <% end %>
                         </td>
-                        <td><%= cart.add_tax_sum_of_price %> </td>
+                        <td><%= (cart.product.price * cart.quantity * @TAX).round %> </td>
                         <td><%= link_to "削除する", cart_path(cart.id), method: :delete %>
                         </td>
                     </tr>
@@ -51,7 +52,7 @@
                 <tbody>
                     <tr>
                         <th>合計金額</th>
-                        <td> </td>
+                        <td> <%= @total_price %></td>
                     </tr>
                 </tbody>
             </table>
