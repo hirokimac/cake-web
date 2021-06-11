@@ -15,6 +15,9 @@ class DeliveryAddressesController < ApplicationController
         if delivery_address.save
             redirect_to user_path(@user.id)
         else
+            @user = current_user
+        @new_delivery_address = DeliveryAddress.new
+        @delivery_addresses = @user.delivery_addresses
             render :index
         end
     end
