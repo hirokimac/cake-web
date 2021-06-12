@@ -29,7 +29,7 @@
                         <%= cart.product.name %> </td>
                         <td><%= (cart.product.price * @TAX).round %> </td>
                         <td><%= form_for(cart, url: cart_path(current_user.id, cart.id), method: :patch) do |f| %>
-                            <%= f.select :quantity, [1,2,3]  %>
+                            <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10]  %>
                             <%= f.submit "変更" %>
                             <% end %>
                         </td>
