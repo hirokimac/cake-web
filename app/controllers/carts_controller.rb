@@ -13,9 +13,7 @@ class CartsController < ApplicationController
     if  @cart.save(cart_params)
         redirect_to carts_path(current_user.id)
     else
-        @product = Product.find(params[:cart][:product_id])
-        @cart = Cart.new
-        render ("products/show")
+        redirect_to product_path(params[:cart][:product_id])
     end
     end
 
@@ -52,7 +50,7 @@ class CartsController < ApplicationController
 
     private
         def cart_params
-            params.require(:cart).permit(:quantity)
+            params.require(:cart).permit(:quantity,:product_id)
         end    
     
 end
