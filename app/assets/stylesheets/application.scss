@@ -22,8 +22,41 @@
   box-sizing: border-box;
 }
 
-.userList{
-  text-decoration: none;
-  color:#FF6699;
+.base-color{
+  background-color:#fffaf0;
 }
 
+.userList{
+  text-decoration: none;
+  color:#FFA07A;
+}
+
+.bg{
+  background-image: url(/assets/food-3991763_1920.jpg);
+  background-size:auto;
+  background-color:rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+}
+
+.about{
+  margin-top: 30px;
+  font-size:70px;
+  text-align: center;
+  color:#696969;
+}
+
+.about-text{
+  margin-top: 2em;
+  font-size: 21px;
+  text-align: center;
+  color:#696969;
+}
+
+.naganocake_rogo{
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.footer-line{
+  margin-bottom: 50px;
+}

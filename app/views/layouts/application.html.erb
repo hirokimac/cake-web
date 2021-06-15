@@ -11,57 +11,59 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 
-<body class="bg-light">
+<body class="base-color">
 
   <header>
     <div class="container">
-      <nav class="navbar navbar-expand-md navbar-light mt-3 mb-3" style="background-color: #e3f2fd;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1"
-          aria-controls="#navmenu1" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <% if user_signed_in? %>
-        <div class="navbar-brand p-1">
-          <%= link_to root_path do %>
-          <%= image_tag '/assets/linkedin_banner_image_1.png', :size => '200x65' %> <% end %>
-        </div>
-        <div class="collapse navbar-collapse justify-content-end" id="navmenu1">
-          <ul class="navbar-nav ">
-            <li class="nav-item btn btn-outline-primary m-2">
-              <%= link_to "マイページ", user_path(current_user.id), class:"userList" %>
-            </li>
-            <li class="nav-item btn btn-outline-primary m-2">
-              <%= link_to "商品一覧", products_path, class:"userList"%>
-            </li>
-            <li class="nav-item btn btn-outline-primary m-2">
-              <%= link_to "カート", carts_path(current_user.id), class:"userList"%>
-            </li>
-            <li class="nav-item btn btn-outline-primary m-2">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :get, class:"userList"%>
-            </li>
-            <% else %>
-            <div class="navbar-brand p-3">
-              <%= link_to root_path do %>
-              <%= image_tag '/assets/linkedin_banner_image_1.png', :size => '200x65' %> <% end %>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navmenu1">
-              <ul class="navbar-nav">
-                <li class="nav-item btn btn-outline-primary m-2">
-                  <%= link_to "About", about_path, class:"userList" %>
-                </li>
-                <li class="nav-item btn btn-outline-primary m-2">
-                  <%= link_to "商品一覧", products_path, class:"userList" %>
-                </li>
-                <li class="nav-item btn btn-outline-primary m-2">
-                  <%= link_to "新規登録", new_user_registration_path, class:"userList" %>
-                </li>
-                <li class="nav-item btn btn-outline-primary m-2">
-                  <%= link_to "ログイン", new_user_session_path, class:"userList" %>
-                </li>
-                <% end %>
-              </ul>
-            </div>
-      </nav>
+      <div class="col-12">
+        <nav class="navbar navbar-expand-md navbar-light mt-3 mb-3" style="background-color: #e3f2fd;">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1"
+            aria-controls="#navmenu1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <% if user_signed_in? %>
+          <div class="navbar-brand p-1">
+            <%= link_to root_path do %>
+            <%= image_tag '/assets/linkedin_banner_image_1.png', :size => '200x65' %> <% end %>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+            <ul class="navbar-nav ">
+              <li class="nav-item btn btn-outline-primary m-2">
+                <%= link_to "マイページ", user_path(current_user.id), class:"userList" %>
+              </li>
+              <li class="nav-item btn btn-outline-primary m-2">
+                <%= link_to "商品一覧", products_path, class:"userList"%>
+              </li>
+              <li class="nav-item btn btn-outline-primary m-2">
+                <%= link_to "カート", carts_path(current_user.id), class:"userList"%>
+              </li>
+              <li class="nav-item btn btn-outline-primary m-2">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :get, class:"userList"%>
+              </li>
+              <% else %>
+              <div class="navbar-brand p-3">
+                <%= link_to root_path do %>
+                <%= image_tag '/assets/linkedin_banner_image_1.png', :size => '200x65' %> <% end %>
+              </div>
+              <div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+                <ul class="navbar-nav">
+                  <li class="nav-item btn btn-outline-info m-2">
+                    <%= link_to "About", about_path, class:"userList" %>
+                  </li>
+                  <li class="nav-item btn btn-outline-info m-2">
+                    <%= link_to "商品一覧", products_path, class:"userList" %>
+                  </li>
+                  <li class="nav-item btn btn-outline-info m-2">
+                    <%= link_to "新規登録", new_user_registration_path, class:"userList" %>
+                  </li>
+                  <li class="nav-item btn btn-outline-info m-2">
+                    <%= link_to "ログイン", new_user_session_path, class:"userList" %>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+        </nav>
+      </div>
     </div>
     <div class="col-12">
       <p class="border-bottom border-dark"></p>
@@ -78,8 +80,9 @@
   </main>
 
   <footer>
-    <div class="col-12">
+    <div class="col-12 footer-line">
       <p class="border-top border-dark"></p>
+    </div>
   </footer>
 </body>
 
