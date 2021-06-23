@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_115058) do
+ActiveRecord::Schema.define(version: 2021_06_23_113021) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_115058) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "billing_amount", null: false
-    t.string "pay_type", null: false
+    t.integer "pay_type", null: false
     t.integer "freight", null: false
     t.integer "postcode", null: false
     t.text "ship_address", null: false
