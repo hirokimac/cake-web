@@ -3,12 +3,13 @@
         <div class="col">
             <div class="d-flex flex-row bd-highlight mb-3">
                 <div class="p-2 bd-highlight">
-                    <h1>注文情報確認</h1>
+                    <h1>注文情報入力</h1>
                     <%= form_for(@order) do |f| %>
                     <%= f.hidden_field :user_id %>
                     <div class="form-group">
-                        <h2>支払方法</h2>
-                        <label><span class="glyphicon glyphicon-stop"></span>お支払い方法</label>
+                        <p></p>
+                        <h3>支払方法</h3>
+                        <p></p>
                         <p class="text">ご希望のお支払い方法を選択してください。</p>
                         <div class="radio">
                             <label><%= f.radio_button :pay_type, :クレジットカード %>クレジットカード</label>
@@ -25,25 +26,27 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <label><span class="glyphicon glyphicon-stop"></span>お届け先</label>
+                <h3>お届け先</h3>
+                <p></p>
                 <p class="text">ご希望のお届け先を選択してください。</p>
                 <!-- 自宅 -->
                 <div class="radio">
                     <label>
-                        <%= radio_button_tag("_add", "usersAdd") %>ご自身の住所:
-                    </label>
-                    <span>〒<%= current_user.postcode %> <%= current_user.address %>
-                    <%= current_user.last_name %> <%= current_user.first_name %>
+                        <%= radio_button_tag("_add", "usersAdd") %>ご自身の住所
+                    </label><br>
+                    <span>〒<%= current_user.postcode %> <%= current_user.address %> <br>
+                        <%= current_user.last_name %> <%= current_user.first_name %>
                     </span>
                 </div>
-
+                <p></p>
                 <!-- 登録した配送先 -->
                 <div class="radio">
                     <label><%= radio_button_tag("_add", "shipAdds") %>登録済住所から選択</label>
                 </div>
-                			<%= collection_select(:Delivery_addresses, :id, @ads, :id, :address) %>
-
-
+                <%= collection_select(:Delivery_addresses, :id, @ads, :id, :postcode) %>
+                <%= collection_select(:Delivery_addresses, :id, @ads, :id, :address) %>
+                <%= collection_select(:Delivery_addresses, :id, @ads, :id, :name) %>
+                <p></p>
                 <!-- 新しく配送先を設定-->
                 <div class="radio">
                     <label>
@@ -95,7 +98,7 @@
             </div>
 
             <div class="text-center">
-                <%= f.submit '登録する', class:"btn btn-success" %>
+                <%= f.submit '確認画面へ進む', class:"btn btn-success" %>
             </div>
             <% end %>
         </div>
