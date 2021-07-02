@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <h2>注文情報確認</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">商品名</th>
+                        <th scope="row">単価(税込)</th>
+                        <th scope="row">数量</th>
+                        <th scope="row">小計</th>
+                        <th scope="row">　　</th>
+                    </tr>
+                    <% @carts.each do |cart| %>
+                    <tr>
+                        <td><%= attachment_image_tag cart.product, :product_image, :fill, 100, 50, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+                        <%= cart.product.name %> </td>
+                        <td><%= (cart.product.price * @TAX).round %> </td>
+                        <td><%= cart.quantity %> </td>
+                        <td><%= (cart.product.price * cart.quantity * @TAX).round %> </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div calss="row">
+        <div class="col-md-4">
+            <%= button_to "買い物を続ける", products_path, method: :get  %>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>合計金額</th>
+                        <td> <%= @total_price %>円</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>お届け先</th>
+                        <td> 〒<%= @order.postcode %> </td>
+                        <td> <%= @order.ship_address %> </td>
+                        <td> <%= @order.ship_name %> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <%= button_to "注文を確定する", orders_path(@user), method: :post %>
+        </div>
+    </div>
+</div>
+
+</div>
