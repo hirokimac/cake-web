@@ -43,21 +43,48 @@ class OrdersController < ApplicationController
     end
     
     def create
-        @ad.postcode = params[:ship_to_address][:postcode]
-        @ad.ship_address = params[:ship_to_address][:address]
-        @ad.ship_name = params[:ship_to_address][:name]
-        @ad.save
+        @user = current_user
+        @order = Order.new
+        @order.user_id = params[:order][:user_id]
+        @order.billing_amount = params[:order][:billing_amount]
+        @order.freight = params[:order][:freight]
+        @order.postcode = params[:order][:postcode]
+        @order.ship_address = params[:order][:ship_address]
+        @order.ship_name = params[:order][:ship_name]
+        @order.pay_type = params[:order][:pay_type]
+        if @order.save
+            redirect_to thanks_orders_path
+        else 
+            redirect_to new_order_path(params[:order][:user_id])
+        end
+        
+        @carts = current_user.carts
+        @TAX = 1.10
+        @carts.each do |cart_item|
+            OrderItem.create(
+                order_id: @order.id,
+                product_id: cart_item.product_id,
+                name: cart_item.product.name,
+                quantity: cart_item.quantity,
+                price: (cart_item.product.price * cart_item.quantity * @TAX).round
+            )
+        end
+        
+        @carts.destroy_all
+
     end
 
     def thanks
     end
 
     def index
+        @user = current_user
+        @orders = @user.orders
     end
 
     def show
     end
-    
+
     
 end
 
