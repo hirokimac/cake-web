@@ -40,7 +40,9 @@
                             <td><%= @user.postcode %> </td>
                             <td><%= @user.address %> </td>
                             <td><%= @user.last_name %> <%= @user.first_name %> </td>
-                            <td> <%= button_to "編集する", {controller: 'users', action: 'edit'}, {method: :get} %>
+                            <td>
+                                <label><%= radio_button_tag("_add", "user_address") %></label>
+                                <%= button_to "編集する", {controller: 'users', action: 'edit'}, {method: :get} %>
                             </td>
                         </tr>
                         <% @delivery_addresses.each do |delivery_address| %>
