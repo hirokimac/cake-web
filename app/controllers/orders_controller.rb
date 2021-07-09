@@ -55,6 +55,7 @@ class OrdersController < ApplicationController
         if @order.save
             redirect_to thanks_orders_path
         else 
+            binding.pry
             redirect_to new_order_path(params[:order][:user_id])
         end
         
@@ -81,8 +82,11 @@ class OrdersController < ApplicationController
         @user = current_user
         @orders = @user.orders
     end
-
+    
     def show
+        @user = current_user
+        @order = Order.find(params[:id])
+        @order_items = @order.order_items
     end
 
     

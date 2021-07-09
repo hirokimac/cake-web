@@ -23,13 +23,15 @@
                     </tr>
                     <% @orders.each do |order| %>
                     <tr>
-                        <td><%= order.created_at %> </td>
-                        <td><%= order.ship_address %> </td>
-                        <td><%= order.order_items.name %> </td>
-                        <td><%= order.billing_amount %> </td>
+                        <td><%= order.created_at.to_s(:datetime_jp) %> </td>
+                        <td><%= order.postcode %><%= order.ship_address %><%= order.ship_name %> </td>
+                        <td><% order.order_items.each do |order_item| %>
+    		          	<%= order_item.name %><br>
+    		          <% end %> </td>
+                        <td><%= order.billing_amount %>円 </td>
                         <td><%= order.order_status %> </td>
                         <td>
-                        <%= button_to "表示する", {controller: 'orders', action: 'show'}, {method: :get} %>
+                        <%= link_to "注文詳細", order_path(order.id), class: "glyphicon glyphicon-zoom-in btn btn-success"  %>
                         </td>
                     </tr>
                     <% end %>
